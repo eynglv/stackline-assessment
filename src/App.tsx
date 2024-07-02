@@ -1,25 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
+import { Container, Box } from '@mui/material'
+import { Header, HomePage } from './components'
 
 function App() {
+
+  const theme = createTheme({
+    palette: {
+      background: {
+        paper: '#f6f8fa'
+      },
+      primary: {
+        main: '#052849',
+        light: '#49a9f4'
+      },
+      secondary: {
+        main: '#9aa8bc',
+        light: '#ffffff'
+      },
+      text: {
+        primary: '#4C5767',
+        secondary: '#ADBCD0'
+      }
+    }
+  })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Container disableGutters maxWidth={false} sx={{ backgroundColor: 'background.paper', height: '100vh', boxSizing: "border-box" }}>
+        <Header />
+        <HomePage />
+      </Container>
+    </ThemeProvider>
   );
 }
 
