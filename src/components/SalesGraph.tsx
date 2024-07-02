@@ -13,7 +13,9 @@ type SalesGraphProps = {
     sales?: Sales[]
 }
 
-const SalesGraph = ({ sales }: SalesGraphProps): JSX.Element => {
+const SalesGraph = ({ sales }: SalesGraphProps): JSX.Element | null => {
+
+    if (!sales) return null;
 
     const customize = {
         legend: { hidden: true },

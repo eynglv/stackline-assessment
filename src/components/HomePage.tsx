@@ -4,29 +4,16 @@ import { Box } from "@mui/material";
 import ItemOverview from './ItemOverview';
 import SalesGraph from './SalesGraph';
 import SalesTable from "./SalesTable";
+import jsonData from '../api/data.json'
 
 
 const HomePage = (): JSX.Element => {
-    const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<Error | null>(null);
+    const [data, setData] = useState<any | null>(null);
 
     useEffect(() => {
         // stubbed API call
-        const fetchData = async () => {
-            try {
-                const response = await fetch('/data.json');
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const result = await response.json();
-                setData(result[0]);
-            }
-            catch (error) {
-                setError(error as Error);
-            } finally {
-                setLoading(false);
-            }
+        const fetchData = () => {
+            setData(jsonData[0])
         };
 
         fetchData();
@@ -73,10 +60,6 @@ const HomePage = (): JSX.Element => {
         }
     }, [data]);
 
-
-
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error.message}</div>;
 
 
     return (
