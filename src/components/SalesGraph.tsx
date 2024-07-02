@@ -24,9 +24,9 @@ const SalesGraph = ({ sales }: SalesGraphProps): JSX.Element => {
     return (
         <Box sx={{
             height: '50%',
-            width: '75%',
             backgroundColor: 'secondary.light',
             p: 2,
+            width: '90%'
         }}>
             <Typography variant="subtitle1">Retail Sales</Typography>
             <LineChart

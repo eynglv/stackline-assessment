@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 
 import ItemOverview from './ItemOverview';
 import SalesGraph from './SalesGraph';
+import SalesTable from "./SalesTable";
 
 
 const HomePage = (): JSX.Element => {
@@ -81,8 +82,10 @@ const HomePage = (): JSX.Element => {
         <Box sx={{ width: '100%', height: '100%', p: 5 }}>
             <Box sx={{ width: '100%', height: '100%', display: 'flex' }}>
                 <ItemOverview title={title} subtitle={subtitle} image={image} tags={tags} />
-                <Box sx={{ mr: 5 }} />
-                <SalesGraph sales={sales} />
+                <Box sx={{ ml: 5, display: 'flex', flexDirection: 'column', width: '100%' }}>
+                    <SalesGraph sales={sales} />
+                    <SalesTable sales={sales} />
+                </Box>
             </Box>
         </Box>
     )
