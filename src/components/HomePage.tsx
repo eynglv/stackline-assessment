@@ -1,7 +1,8 @@
-import { useState, useEffect, useMemo } from "react"
-import { Box } from "@mui/material"
+import { useState, useEffect, useMemo } from "react";
+import { Box } from "@mui/material";
 
-import ItemOverview from './ItemOverview'
+import ItemOverview from './ItemOverview';
+import SalesGraph from './SalesGraph';
 
 
 const HomePage = (): JSX.Element => {
@@ -62,6 +63,15 @@ const HomePage = (): JSX.Element => {
     }, [data]);
 
 
+    const sales = useMemo(() => {
+        if (data !== null) {
+            return (
+                data['sales']
+            );
+        }
+    }, [data]);
+
+
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error.message}</div>;
@@ -69,7 +79,11 @@ const HomePage = (): JSX.Element => {
 
     return (
         <Box sx={{ width: '100%', height: '100%', p: 5 }}>
-            <ItemOverview title={title} subtitle={subtitle} image={image} tags={tags} />
+            <Box sx={{ width: '100%', height: '100%', display: 'flex' }}>
+                <ItemOverview title={title} subtitle={subtitle} image={image} tags={tags} />
+                <Box sx={{ mr: 5 }} />
+                <SalesGraph sales={sales} />
+            </Box>
         </Box>
     )
 }
