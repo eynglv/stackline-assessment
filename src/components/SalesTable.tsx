@@ -1,5 +1,6 @@
 import { Box, Table, TableHead, TableRow, TableCell, TableBody } from '@mui/material'
 
+// not DRY
 type Sales = {
     weekEnding: string;
     retailSales: number;

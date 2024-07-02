@@ -12,6 +12,7 @@ const HomePage = (): JSX.Element => {
     const [error, setError] = useState<Error | null>(null);
 
     useEffect(() => {
+        // stubbed API call
         const fetchData = async () => {
             try {
                 const response = await fetch('/data.json');

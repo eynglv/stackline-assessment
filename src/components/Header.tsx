@@ -1,7 +1,6 @@
 import { Box } from "@mui/material"
 
 import StacklineLogo from './StacklineLogo'
-import Logo from './stackline_logo.svg';
 
 const Header = (): JSX.Element => (
     <Box sx={{ backgroundColor: 'primary.main', width: "100%", height: '80px' }}>
